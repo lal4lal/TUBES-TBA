@@ -1,10 +1,15 @@
 # TUBES-TBA
 Tugas Besar Teori Bahasa dan Automata 2024
 Buatlah sebuah parser sederhana untuk memeriksa kevalidan struktur kalimat berbahasa Indonesia. Struktur kalimat yang dikenali adalah kalimat berita aktif dengan struktur:
+
 S – P – O – K 
+
 S – P – K
+
 S – P – O 
+
 S – P
+
 Adapun jenis subyek, predikat, obyek dan keterangan yang dikenali ditentukan oleh kelompok masing-masing dengan jumlah kata masing- masing sebanyak 5.
 
 Tugas Anda:

@@ -8,13 +8,13 @@ def check_subyek(input_string):
     return state in subyek_accept_states
 
 def check_predikat(input_string):
-    state = predikat_accept_states
+    state = predikat_initial_states
     for char in input_string:
         if (state, char) in predikat_transitions:
             state = predikat_transitions[(state, char)]
         else:
             return False
-    return state in predikat_transitions
+    return state in predikat_accept_states
 
 def check_objek(input_string):
     state = objek_initial_states
@@ -47,7 +47,6 @@ subyek_transitions = {
 subyek_accept_states = {'q4', 'q5'}
 subyek_initial_states = 'q0'
 
-# Predikat (P)
 predikat_transitions = {
     ('q0', 'm'): 'q1', ('q0', 'b'): 'q22',
     ('q1', 'e'): 'q2', 
@@ -79,7 +78,6 @@ predikat_transitions = {
 predikat_accept_states = {'q8', 'q15', 'q21', 'q29'}
 predikat_initial_states = 'q0'
 
-# Objek (O)
 objek_transitions = {
     ('q0', 'p'): 'q1',
     ('q1', 'e'): 'q2',
@@ -113,14 +111,12 @@ objek_transitions = {
 objek_accept_states = {'q9'}
 objek_initial_states = 'q0'
 
-# Keterangan (K)
 keterangan_transitions = {
     ('q0', 'k'): 'q1', ('q1', 'e'): 'q2', ('q2', 'm'): 'q3', ('q3', 'a'): 'q4', ('q4', 'r'): 'q5', ('q5', 'i'): 'q6', ('q6', 'n'): 'q7',
-    ('q0', 's'): 'q8', ('q8', 's'): 'q9', ('q9', 's'): 'q10', ('q10', 's'): 'q11', ('q11', 's'): 'q12', ('q12', 's'): 'q13', ('q13', 's'): 'q14', ('q14', 's'): 'q15',
+    ('q0', 's'): 'q8', ('q8', 'e'): 'q9', ('q9', 'k'): 'q10', ('q10', 'a'): 'q11', ('q11', 'r'): 'q12', ('q12', 'a'): 'q13', ('q13', 'n'): 'q14', ('q14', 'g'): 'q15',
     ('q0', 'b'): 'q16', ('q16', 'e'): 'q17', ('q17', 's'): 'q18', ('q18', 'o'): 'q19', ('q19', 'k'): 'q20',
     ('q0', 'n'): 'q21', ('q21', 'a'): 'q22', ('q22', 'n'): 'q23', ('q23', 't'): 'q24', ('q24', 'i'): 'q25',
     ('q0', 'l'): 'q26', ('q26', 'u'): 'q27', ('q27', 's'): 'q28', ('q28', 'a'): 'q29'
 }
 keterangan_accept_states = {'q7', 'q15', 'q20', 'q25', 'q29'}
 keterangan_initial_states = 'q0'
-

@@ -120,3 +120,20 @@ keterangan_transitions = {
 }
 keterangan_accept_states = {'q7', 'q15', 'q20', 'q25', 'q29'}
 keterangan_initial_states = 'q0'
+
+def token_recognizer(word):
+    subyek = check_subyek(word)
+    predikat = check_predikat(word)
+    objek = check_objek(word)
+    keterangan = check_keterangan(word)
+    
+    if subyek:
+        return 'S'
+    elif predikat:
+        return 'P'
+    elif objek:
+        return 'O'
+    elif keterangan:
+        return 'K'
+    else:
+        return 'UNKNOWN'

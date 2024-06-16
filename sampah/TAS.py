@@ -1,4 +1,4 @@
-from finite_automata import *
+from token_recognizer import *
 def token_recognizer(word):
     subyek = check_subyek(word)
     predikat = check_predikat(word)

@@ -43,8 +43,8 @@ predikat_transitions = {
     ('q27', 'i'): 'q28',
     ('q28', 'h'): 'q29'
 }
-predikat_accept_states = {}
-predikat_initial_states = {}
+predikat_accept_states = {'q8', 'q15', 'q21', 'q29'}
+predikat_initial_states = {'q0'}
 
 # Objek (O)
 objek_transitions = {
@@ -90,4 +90,6 @@ keterangan_transitions = {
 }
 keterangan_accept_states = {'q7', 'q15', 'q20', 'q25', 'q29'}
 keterangan_initial_states = {'q0'}
+
+
 

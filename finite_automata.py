@@ -1,5 +1,38 @@
-def process_string(str):
-    pass
+def check_subyek(input_string):
+    state = subyek_initial_states
+    for char in input_string:
+        if (state, char) in subyek_transitions:
+            state = subyek_transitions[(state, char)]
+        else:
+            return False
+    return state in subyek_accept_states
+
+def check_predikat(input_string):
+    state = predikat_accept_states
+    for char in input_string:
+        if (state, char) in predikat_transitions:
+            state = predikat_transitions[(state, char)]
+        else:
+            return False
+    return state in predikat_transitions
+
+def check_objek(input_string):
+    state = objek_initial_states
+    for char in input_string:
+        if (state, char) in objek_transitions:
+            state = objek_transitions[(state, char)]
+        else:
+            return False
+    return state in objek_accept_states
+
+def check_keterangan(input_string):
+    state = keterangan_initial_states
+    for char in input_string:
+        if (state, char) in keterangan_transitions:
+            state = keterangan_transitions[(state, char)]
+        else:
+            return False
+    return state in keterangan_accept_states
 
 subyek_transitions = {
     # s, i, n, t, a
@@ -12,7 +45,7 @@ subyek_transitions = {
     ('q7', 't'): 'q3'
 }
 subyek_accept_states = {'q4', 'q5'}
-subyek_initial_states = {'q0'}
+subyek_initial_states = 'q0'
 
 # Predikat (P)
 predikat_transitions = {
@@ -44,7 +77,7 @@ predikat_transitions = {
     ('q28', 'h'): 'q29'
 }
 predikat_accept_states = {'q8', 'q15', 'q21', 'q29'}
-predikat_initial_states = {'q0'}
+predikat_initial_states = 'q0'
 
 # Objek (O)
 objek_transitions = {
@@ -78,7 +111,7 @@ objek_transitions = {
     ('q28', 'r'): 'q7',   
 }
 objek_accept_states = {'q9'}
-objek_initial_states = {'q0'}
+objek_initial_states = 'q0'
 
 # Keterangan (K)
 keterangan_transitions = {
@@ -89,7 +122,5 @@ keterangan_transitions = {
     ('q0', 'l'): 'q26', ('q26', 'u'): 'q27', ('q27', 's'): 'q28', ('q28', 'a'): 'q29'
 }
 keterangan_accept_states = {'q7', 'q15', 'q20', 'q25', 'q29'}
-keterangan_initial_states = {'q0'}
-
-
+keterangan_initial_states = 'q0'
 

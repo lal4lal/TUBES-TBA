@@ -79,6 +79,7 @@ predikat_accept_states = {'q8', 'q15', 'q21', 'q29'}
 predikat_initial_states = 'q0'
 
 objek_transitions = {
+    # p, e, m, f, a, k, t, o, r, n, b, g, i, l, h, u
     ('q0', 'p'): 'q1',
     ('q1', 'e'): 'q2',
     ('q2', 'm'): 'q21', ('q2', 'r'): 'q3', ('q2', 'n'): 'q15',
@@ -112,6 +113,7 @@ objek_accept_states = {'q9'}
 objek_initial_states = 'q0'
 
 keterangan_transitions = {
+    # k, e, m, a, r, i, n, s, g, b, o, t, l, u
     ('q0', 'k'): 'q1', ('q1', 'e'): 'q2', ('q2', 'm'): 'q3', ('q3', 'a'): 'q4', ('q4', 'r'): 'q5', ('q5', 'i'): 'q6', ('q6', 'n'): 'q7',
     ('q0', 's'): 'q8', ('q8', 'e'): 'q9', ('q9', 'k'): 'q10', ('q10', 'a'): 'q11', ('q11', 'r'): 'q12', ('q12', 'a'): 'q13', ('q13', 'n'): 'q14', ('q14', 'g'): 'q15',
     ('q0', 'b'): 'q16', ('q16', 'e'): 'q17', ('q17', 's'): 'q18', ('q18', 'o'): 'q19', ('q19', 'k'): 'q20',

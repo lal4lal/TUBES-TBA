@@ -48,6 +48,7 @@ subyek_accept_states = {'q4', 'q5'}
 subyek_initial_states = 'q0'
 
 predikat_transitions = {
+    # m, e, n, l, i, t, g, a, j, r, h, t, u, k, b
     ('q0', 'm'): 'q1', ('q0', 'b'): 'q22',
     ('q1', 'e'): 'q2', 
     ('q2', 'n'): 'q3', 

@@ -131,12 +131,12 @@ def token_recognizer(word):
     keterangan = check_keterangan(word)
     
     if subyek:
-        return 'S'
+        return 's'
     elif predikat:
-        return 'P'
+        return 'p'
     elif objek:
-        return 'O'
+        return 'o'
     elif keterangan:
-        return 'K'
+        return 'k'
     else:
         return 'UNKNOWN'

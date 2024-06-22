@@ -1,40 +1,86 @@
 from token_recognizer import token_recognizer
-parse_table = {
-    'A': [['S','P','O','K'], ['S','P','K'], ['S','P','O'], ['S','P']],
-    'S': ['anna', 'ani', 'anita', 'anisa', 'ananta'],
-    'P': ['meneliti', 'mengajar', 'menghitung', 'mengkaji', 'berlatih'],
-    'O': ['perkalian', 'pertambahan', 'pengurangan', 'pembagian', 'pemfaktoran'],
-    'K': ['kemarin', 'sekarang', 'lusa', 'nanti', 'besok']
+cfg = {
+    'A': ['sB'],
+    'B': ['pC'],
+    'C': ['oD', 'k', ''],
+    'D': ['k', '']
 }
 
-def parsing(wordsentence, tokens):
+parse_table = {
+    'A': ['sB', '-1', '-1', '-1', '-1'],
+    'B': ['-1', 'pC', '-1', '-1', '-1'],
+    'C': ['-1', '-1', 'oD', 'k', ''],
+    'D': ['-1', '-1', '-1', 'k', '']
+}
+
+def LL1_parsing(tokens):
     stack = ['#', 'A']
     i = 0
+    tokens.append('eos')
     while stack[-1] != '#':
-        symbol = wordsentence[i]
-        
-        print(f"Stack: {stack}")
-        top = stack.pop()
-        print(f"Top: {top}")
-        print(f"Symbol: {symbol}")
+        symbol = tokens[i]
+        top = stack[-1]
         if top == 'A':
-            if tokens in parse_table['A']:
-                for i in range(len(tokens)-1, -1, -1):
-                    stack.append(tokens[i])
+            if symbol == 's':
+                stack.pop()
+                for j in range(len(cfg[top][0])-1, -1, -1):
+                    stack.append(cfg[top][0][j])
             else:
                 return False
-        elif top in parse_table:
-            if symbol in parse_table[top]:
-                stack.append(symbol)
+        elif top == 'B':
+            if symbol == 'p':
+                stack.pop()
+                for j in range(len(cfg[top][0])-1, -1, -1):
+                    stack.append(cfg[top][0][j])
             else:
                 return False
-        else:
-            if top == symbol:
-                i += 1
+        elif top == 'C':
+            if symbol == 'o':
+                stack.pop()
+                for j in range(len(cfg[top][0])-1, -1, -1):
+                    stack.append(cfg[top][0][j])
+            elif symbol == 'k':
+                stack.pop()
+                for j in range(len(cfg[top][1])-1, -1, -1):
+                    stack.append(cfg[top][1][j])
+            elif symbol == 'eos':
+                stack.pop()
+            else:
+                return False 
+        elif top == 'D':
+            if symbol == 'k':
+                stack.pop()
+                for j in range(len(cfg[top][0])-1, -1, -1):
+                    stack.append(cfg[top][0][j])
+            elif symbol == 'eos':
+                stack.pop()
+            else:
+                return False 
+        elif top == 's':
+            if symbol == 's':
+                stack.pop()
+                i = i + 1
+            else:
+                return False
+        elif top == 'p':
+            if symbol == 'p':
+                stack.pop()
+                i = i + 1
+            else:
+                return False
+        elif top == 'o':
+            if symbol == 'o':
+                stack.pop()
+                i = i + 1
+            else:
+                return False
+        elif top == 'k':
+            if symbol == 'k':
+                stack.pop()
+                i = i + 1
             else:
                 return False
     return True
-
 
 def tokenize(sentence):
     words = sentence.split()

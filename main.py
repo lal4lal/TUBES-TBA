@@ -1,15 +1,10 @@
 from cfg_parser import *
-# sentences = [
-#     'meneliti ani kemarin',
-#     'ani mengajar sekarang',
-#     'anita menghitung pembagian',
-#     'anisa berlatih',
-#     'anna menghitung pemfaktoran kemarin'
-# ]
-
-
 sentences = [
-    'ani mengajar sekarang'
+    'meneliti ani kemarin',
+    'anii mengajar sekarang',
+    'anita menghitungg pembagian',
+    'anisa berlatih',
+    'anna menghitung pemfaktoran kemarin'
 ]
 
 for sentence in sentences:
@@ -17,5 +12,5 @@ for sentence in sentences:
     tokens = tokenize(sentence)
     print(f"Sentence: {sentence}")
     print(f"Tokens: {tokens}")
-    print(f"Valid: {parsing(wordsentence,tokens)}")
+    print(f"Valid: {LL1_parsing(tokens)}")
     print()

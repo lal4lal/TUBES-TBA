@@ -4,6 +4,8 @@ sentences = [
     'anii mengajar sekarang',
     'anita menghitungg pembagian',
     'anisa berlatih',
+    'ananta mengkaji pengurangan',
+    'ani berlatih lusa',
     'anna menghitung pemfaktoran kemarin'
 ]
 

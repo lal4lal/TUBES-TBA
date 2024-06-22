@@ -9,7 +9,6 @@ cfg = {
 def LL1_parsing(tokens):
     stack = ['#', 'A']
     i = 0
-    tokens.append('eos')
     while stack[-1] != '#':
         top = stack[-1]
         symbol = tokens[i]
@@ -36,7 +35,7 @@ def LL1_parsing(tokens):
                 stack.pop()
                 for j in range(len(cfg[top][1])-1, -1, -1):
                     stack.append(cfg[top][1][j])
-            elif symbol == 'eos':
+            elif symbol == ' ':
                 stack.pop()
             else:
                 return False 
@@ -45,7 +44,7 @@ def LL1_parsing(tokens):
                 stack.pop()
                 for j in range(len(cfg[top][0])-1, -1, -1):
                     stack.append(cfg[top][0][j])
-            elif symbol == 'eos':
+            elif symbol == ' ':
                 stack.pop()
             else:
                 return False 
@@ -78,4 +77,4 @@ def LL1_parsing(tokens):
 def tokenize(sentence):
     words = sentence.split()
     tokens = [token_recognizer(word) for word in words]
-    return tokens
+    return ''.join(tokens)+' '

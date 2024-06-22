@@ -139,4 +139,4 @@ def token_recognizer(word):
     elif keterangan:
         return 'k'
     else:
-        return 'UNKNOWN'
+        return 'X'

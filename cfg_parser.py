@@ -12,7 +12,6 @@ def parsing(wordsentence, tokens):
     i = 0
     while stack[-1] != '#':
         symbol = wordsentence[i]
-        
         print(f"Stack: {stack}")
         top = stack.pop()
         print(f"Top: {top}")

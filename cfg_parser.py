@@ -6,6 +6,11 @@ cfg = {
     'D': ['k', '']
 }
 
+def tokenize(sentence):
+    words = sentence.split()
+    tokens = [token_recognizer(word) for word in words]
+    return ''.join(tokens)+' '
+
 def LL1_parsing(tokens):
     stack = ['#', 'A']
     i = 0
@@ -73,8 +78,3 @@ def LL1_parsing(tokens):
             else:
                 return False
     return True
-
-def tokenize(sentence):
-    words = sentence.split()
-    tokens = [token_recognizer(word) for word in words]
-    return ''.join(tokens)+' '

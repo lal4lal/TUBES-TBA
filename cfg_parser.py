@@ -12,7 +12,11 @@ def parsing(wordsentence, tokens):
     i = 0
     while stack[-1] != '#':
         symbol = wordsentence[i]
+        
+        print(f"Stack: {stack}")
         top = stack.pop()
+        print(f"Top: {top}")
+        print(f"Symbol: {symbol}")
         if top == 'A':
             if tokens in parse_table['A']:
                 for i in range(len(tokens)-1, -1, -1):

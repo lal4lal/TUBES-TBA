@@ -1,10 +1,15 @@
 from cfg_parser import *
+# sentences = [
+#     'meneliti ani kemarin',
+#     'ani mengajar sekarang',
+#     'anita menghitung pembagian',
+#     'anisa berlatih',
+#     'anna menghitung pemfaktoran kemarin'
+# ]
+
+
 sentences = [
-    'meneliti ani kemarin',
-    'ani mengajar sekarang',
-    'anita menghitung pembagian',
-    'anisa berlatih',
-    'anna menghitung pemfaktoran kemarin'
+    'ani mengajar sekarang'
 ]
 
 for sentence in sentences:

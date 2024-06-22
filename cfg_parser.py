@@ -11,6 +11,8 @@ def LL1_parsing(tokens):
     i = 0
     tokens.append('eos')
     while stack[-1] != '#':
+        top = stack[-1]
+        symbol = tokens[i]
         if top == 'A':
             if symbol == 's':
                 stack.pop()
